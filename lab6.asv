@@ -1,0 +1,18 @@
+mire1 = imread("Mire\Mire\Mire1.pgm");
+mire2 = imread("Mire\Mire\Mire2.pgm");
+
+P1 = mire1;
+P1_hom = cat(3, P1, ones(size(P1)));
+P1_homogeneous = [P1; ones(1, size(P1, 2))];
+disp(size(P1_hom))
+
+% figure
+% subplot(1, 2, 1)
+% imshow(mire1), title("Mire 1");
+% subplot(1, 2, 2)
+% imshow(mire2), title("Mire 2")
+
+% F = EightPointsAlgorithm(mire1, mire2);
+% disp(F);
+% F = EightPointsAlgorithmN(mire1, mire2);
+% disp(F);
