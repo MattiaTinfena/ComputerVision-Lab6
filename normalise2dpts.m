@@ -1,5 +1,4 @@
 function [newpts, T] = normalise2dpts(pts)
-    disp( size(pts,1));
     if size(pts,1) ~= 3
         error('pts must be 3xN');
     end

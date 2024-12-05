@@ -1,4 +1,5 @@
 function [F] = EightPointsAlgorithm(P1, P2)
+    
 % Write down the matrix A
 N = size(P1, 1);
 A = zeros(N, 9);
