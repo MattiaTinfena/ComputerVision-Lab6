@@ -1,0 +1,28 @@
+function [F] = EightPointsAlgorithm(P1, P2)
+
+% Write down the matrix A
+N = size(P1, 1);
+A = zeros(N);
+for i = 1:N
+    x1 = P1(i, 1); y1 = P1(i, 2);
+    x2 = P2(i, 1); y2 = P2(i, 2);
+    A(i, :) = [x2*x1];
+    
+end
+% Compute the SVD decomposition of A → [U, D, V]=svd(A);
+[U, D, V]=svd(A);
+V()
+
+% and select as solution f the last column of V.
+
+% Reshape the column vector f so to obtain a matrix F (see function reshape)
+
+% Force the rank of F to be 2:
+
+% Use again the SVD to decompose the matrix [U, D, V] = svd(F)
+
+% Set D(3,3)=0
+
+% Recompute the final F: F=U*D*VT.
+
+end
