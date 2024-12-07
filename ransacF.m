@@ -14,7 +14,7 @@ while ii < iter && ii < 1000
     perm = randperm(N);
     P1iter = P1(:, perm(1:8)); % select 8 random pairs
     P2iter = P2(:, perm(1:8)); % select 8 random pairs
-    F = EightPointsAlgorithmN(P1iter, P2iter);
+    F = EightPointsAlgorithmN(P1iter', P2iter');
     residuals = testF(F, P1, P2);
     nInlier = sum(residuals < th)/N; %current estimated inliers
     
@@ -33,6 +33,6 @@ function [residuals] = testF(F, P1, P2)
 n = size(P1, 2);
 residuals = zeros(1, n);
 for i = 1 : n
-    residuals(i) = P2(:, 1) * F * P1(:,i);
+    residuals(i) = P2(:, 1)' * F * P1(:,i);
 end
 end

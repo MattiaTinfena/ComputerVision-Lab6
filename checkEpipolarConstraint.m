@@ -1,6 +1,5 @@
-function checkEpipolarConstraint(P1, P2, F, label)
+function checkEpipolarConstraint(P1, P2, F, threshold,label)
     % Compute epipolar residuals for all point correspondences
-    tr = 10^-2;
     residuals = zeros(size(P1, 1), 1);
 
     for i = 1:height(P1)
@@ -10,8 +9,8 @@ function checkEpipolarConstraint(P1, P2, F, label)
     end
 
     b = 0;
-    for i = 1:1:size(residuals)
-        if(residuals(i) > tr)  
+    for i = 1:1:size(residuals, 1)
+        if(residuals(i) > threshold)  
             b = 1;
             break;
         end

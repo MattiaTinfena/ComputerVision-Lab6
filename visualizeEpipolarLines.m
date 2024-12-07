@@ -10,7 +10,7 @@ function [] = visualizeEpipolarLines(Im1, Im2, F, pt1, pt2)
 
 I = [Im1 Im2];
 
-figure(100), imshow(I), hold on;
+figure, imshow(I), hold on;
 
 if(size(pt1,1)==0 || size(pt2,1)==0)
 
