@@ -1,35 +1,24 @@
 %% Part 1
 
+P1 = readmatrix('Mire/Mire/Mire1.points', 'FileType', 'text');
+P2 = readmatrix('Mire/Mire/Mire2.points', 'FileType', 'text');
 
-mire1 = readmatrix('Mire/Mire/Mire1.points', 'FileType', 'text');
-mire2 = readmatrix('Mire/Mire/Mire2.points', 'FileType', 'text');
+P1 = [P1, ones(size(P1, 1), 1)];
+P2 = [P2, ones(size(P2, 1), 1)];
 
-mire1 = [mire1, ones(size(mire1, 1), 1)]';
-mire2 = [mire2, ones(size(mire2, 1), 1)]';
-
-F1 = EightPointsAlgorithm(mire1, mire2);
+% Without normalization
+F1 = EightPointsAlgorithm(P1, P2);
 disp(F1);
 
-F2 = EightPointsAlgorithmN(mire1, mire2);
+% With normalization
+F2 = EightPointsAlgorithmN(P1, P2);
 disp(F2);
 
-% Check the epipolar constraint (x'TFx=0) holds for all points 
+% Check the epipolar constraint ((x'^_T)Fx=0) holds for all points 
 % with the estimated F (both with and without normalization)
-check_epipolar1 = mire1' * F1 * mire2;
-check_epipolar2 = mire1' * F2 * mire2;
 
-ep1 = ones(1, size(check_epipolar1, 2));
-ep2 = ones(1, size(check_epipolar2, 2));
-
-for i = 1:size(check_epipolar1, 1)
-    ep1(i) = check_epipolar1(i, i);
-    ep2(i) = check_epipolar2(i, i);
-end
-disp("ep1");
-disp(ep1);
-disp("ep2");
-disp(ep2);
-
+checkEpipolarConstraint(P1, P2, F1, "mire");
+checkEpipolarConstraint(P1, P2, F2, "mire");
 
 
 %% Part 2 - Acquire and match your own images
