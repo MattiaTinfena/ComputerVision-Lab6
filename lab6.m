@@ -17,6 +17,8 @@ disp(F2);
 % Check the epipolar constraint ((x'^_T)Fx=0) holds for all points 
 % with the estimated F (both with and without normalization)
 
+threshold = 10^-2;
+
 checkEpipolarConstraint(P1, P2, F1, "mire");
 checkEpipolarConstraint(P1, P2, F2, "mire");
 
@@ -40,13 +42,16 @@ imshow(mire2), title("Mire 2")
 % Run the image matching algorithm between the two images, 
 % obtaining a set of M correspondences 
 % (presumably, some of them will be wrong/noisy)
-% list_pos = findMatches(mire1, mire2, 'POS', 0.95);
-% list_ncc = findMatches(mire1, mire2, 'NCC', 0.45);
-% list_sift = findMatches(mire1, mire2, 'SIFT', 0.75);
+
+list_sift = findMatches(mire1, mire2, 'SIFT', 0.75);
+
+pt1 = [list_sift(:, 1:2), ones(size(list_sift, 1), 1)];
+pt2 = [list_sift(:, 3:4), ones(size(list_sift, 1), 1)];
 
 % Call the RANSAC function to estimate the optimal F matrix 
 % from the correspondences 
-%[bestF, consensus, outliers] = ransacF(P1, P2, th);
+
+[bestF, consensus, outliers] = ransacF(pt1', pt2', threshold);
 
 % Visualize the results and evaluate your estimated F 
 % (see Evaluation of the results below)

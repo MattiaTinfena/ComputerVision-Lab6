@@ -42,13 +42,16 @@ for j = 1 : size(D2, 2)
 end
 
 
-figure(1);
+figure(100);
+subplot(1,2,1)
 imshow(img1),hold on;
 plot(F1(1,:), F1(2,:), '*');
+title("Img 1")
 
-figure(2);
+subplot(1,2,2)
 imshow(img2),hold on;
 plot(F2(1,:), F2(2,:), '*');
+title("Img 2")
 
 % From now on, we use F1, D1 and F2, D2
 if(strcmp(type, 'POS'))
@@ -121,7 +124,7 @@ elseif(strcmp(type,'SIFT'))
     
 end
 
-figure, imagesc(A), colorbar
+%figure, imagesc(A), colorbar
 
 % Enhancing good matches with SVD
 
@@ -136,7 +139,7 @@ else
     A1 = A;
 end
 
-figure, imagesc(A1), colorbar
+%figure, imagesc(A1), colorbar
 
 % Detecting good matches
 list = [];
