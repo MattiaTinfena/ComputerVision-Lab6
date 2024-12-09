@@ -17,7 +17,7 @@ F1 = EightPointsAlgorithm(P1_hom, P2_hom); % Without normalization
 F2 = EightPointsAlgorithmN(P1_hom, P2_hom);% With normalization
 
 resultEvaluation(mire1, mire2, P1, P2, P1_hom, P2_hom, F1, threshold, "Mire without normalization");
-resultEvaluation(mire1, mire2, P1, P2, P1_hom, P2_hom, F1, threshold, "Mire with normalization");
+resultEvaluation(mire1, mire2, P1, P2, P1_hom, P2_hom, F2, threshold, "Mire with normalization");
 
 %% Part 2 - Acquire and match your own images 10^-2;
 

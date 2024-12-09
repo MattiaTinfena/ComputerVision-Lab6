@@ -1,4 +1,4 @@
-function [left,right] = computeEpipolar(F)
+function [left,right] = computeEpipoles(F)
 %To compute left and right epipoles, recall that they are respectively, 
 % the right and left null space of F, thus you can simply 
 % perform the SVD decomposition of F, F=UWVT,  
@@ -9,7 +9,4 @@ function [left,right] = computeEpipolar(F)
 left = U(:, end);
 right = V(:, end); 
 
-% Normalize to ensure homogeneous coordinates
-left = left / left(end);
-right = right / right(end);
 end

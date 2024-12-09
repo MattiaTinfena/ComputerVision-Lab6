@@ -15,8 +15,8 @@ checkEpipolarConstraint(P1_hom, P2_hom, F, threshold, title);
 visualizeEpipolarLines(img1, img2, F, P1, P2);
 
 % Have a look at the epipoles.
-[left_ep, right_ep] = computeEpipolar(F);
-fprintf('\nLeft epipolar \t Right epipolar\n')
+[left_ep, right_ep] = computeEpipoles(F);
+fprintf('\nLeft epipole \t Right epipole\n')
 for i=1:3
     fprintf("%f \t\t %f\n", left_ep(i), right_ep(i));
 end
