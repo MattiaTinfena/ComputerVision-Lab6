@@ -60,7 +60,7 @@ if(strcmp(type, 'POS'))
 
     % SET SIGMA (for the euclidean distance contribution) TO AN APPROPRIATE
     % VALUE
-    sigma = 2;
+    sigma = 10;
     
     % Initialize the affinity matrix
     A = zeros(size(F1,2), size(F2, 2));
@@ -81,7 +81,7 @@ elseif(strcmp(type, 'NCC'))
 
     % SET THE PATCH SIZE (for the NCC contribution) TO AN APPROPRIATE VALUE 
     % (delta is half the size of the patch, i.e. if delta=2 the patch is 5x5)
-    delta = 2; 
+    delta = 5; 
 
     % Initialize the affinity matrix
     A = zeros(size(F1,2), size(F2, 2));

@@ -1,4 +1,9 @@
+clear all
+close all
+clc
+
 %% Part 1
+
 threshold = 10^-2;
 
 % Load set of predefined point

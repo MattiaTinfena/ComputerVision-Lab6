@@ -4,9 +4,11 @@ function [bestF, consensus, outliers] = ransacF(P1, P2, th)
 ii = 0;
 iter = 100;
 N = size(P1, 2);
+
 bestF = zeros(3, 3);
 bestNInlier = 0;
 p = 0.999;
+
 consensus = [];
 outliers = [];
 
@@ -33,6 +35,6 @@ function [residuals] = testF(F, P1, P2)
 n = size(P1, 2);
 residuals = zeros(1, n);
 for i = 1 : n
-    residuals(i) = P2(:, 1)' * F * P1(:,i);
+    residuals(i) = abs(P2(:, 1)' * F * P1(:,i));
 end
 end

@@ -1,4 +1,5 @@
 function [] = resultEvaluation(img1, img2, P1, P2, P1_hom, P2_hom, F, threshold, title)
+
 disp("---------------")
 disp(title)
 
@@ -21,4 +22,5 @@ for i=1:3
     fprintf("%f \t\t %f\n", left_ep(i), right_ep(i));
 end
 disp("--------------")
+
 end
