@@ -15,7 +15,6 @@ figure, imshow(I), hold on;
 if(size(pt1,1)==0 || size(pt2,1)==0)
 
     cnt = true;
-
     while(cnt)
 
         [x y] = ginput(1);
@@ -81,5 +80,7 @@ else
         plot(xv, yv, '-', 'Color', colors(i,:));
         
     end
+
+    
     
 end

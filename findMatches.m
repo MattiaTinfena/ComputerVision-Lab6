@@ -5,14 +5,13 @@ function [list] = findMatches(img1, img2, type, THRESH)
 % f1_all and f2_all contain the keypoints positions 
 % d1_all and d2_all contain the sift descriptors 
 
-points1 = detectSIFTFeatures(img1);
+points1 = detectFASTFeatures(img1);
 f1_all = points1.Location;
-d1_all = extractFeatures(img1,points1,Method="SIFT");
+d1_all = extractFeatures(img1,points1,Method="SURF");
 
-points2 = detectSIFTFeatures(img2);
+points2 = detectFASTFeatures(img2);
 f2_all = points2.Location;
-d2_all = extractFeatures(img2,points2,Method="SIFT");
-
+d2_all = extractFeatures(img2,points2,Method="SURF");
 
 f1_all = f1_all';
 f2_all = f2_all';
@@ -31,7 +30,7 @@ idx = f2_all(1,:) > delta & f2_all(1,:) < size(img2,2)-delta & f2_all(2,:) > del
 F2 = f2_all(:,idx);
 D2 = d2_all(:,idx);
 
-% Normalize the SIFT vectors 
+%Normalize the SIFT vectors 
 D1n = zeros(size(D1));
 for j = 1 : size(D1, 2)
     D1n(:,j) = D1(:,j)/norm(D1(:,j));
@@ -60,7 +59,7 @@ if(strcmp(type, 'POS'))
 
     % SET SIGMA (for the euclidean distance contribution) TO AN APPROPRIATE
     % VALUE
-    sigma = 10;
+    sigma = 20;
     
     % Initialize the affinity matrix
     A = zeros(size(F1,2), size(F2, 2));
@@ -111,7 +110,7 @@ elseif(strcmp(type,'SIFT'))
 
     % SET THE SIGMA TO AN APPROPRIATE VALUE (notice this time it refers to the
     % comparison of vectors, thus it can not be interpreted in pixels)
-    sigma = 2.;
+    sigma = 20;
 
     A = zeros(size(D1, 2), size(D2, 2));
 
