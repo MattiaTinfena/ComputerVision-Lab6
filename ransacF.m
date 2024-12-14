@@ -11,7 +11,7 @@ function [bestF, consensus, outliers] = ransacF(P1, P2, th)
     consensus = [];
     outliers = [];
 
-    while ii < 1000
+    while ii < 1000 
         perm = randperm(N);
         P1iter = P1(:, perm(1:8)); % select 8 random pairs
         P2iter = P2(:, perm(1:8)); % select 8 random pairs

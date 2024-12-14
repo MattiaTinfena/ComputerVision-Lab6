@@ -1,6 +1,5 @@
 function [list] = findMatches(img1, img2, type, THRESH)
 
-
 % extract CORNERS and SIFTs from both images
 % f1_all and f2_all contain the keypoints positions 
 % d1_all and d2_all contain the sift descriptors 
@@ -41,7 +40,7 @@ for j = 1 : size(D2, 2)
 end
 
 
-figure(100);
+figure
 subplot(1,2,1)
 imshow(img1),hold on;
 plot(F1(1,:), F1(2,:), '*');

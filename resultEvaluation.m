@@ -7,12 +7,10 @@ disp(title)
 disp("Matrix F:")
 disp(F);
 
-% Check the epipolar constraint ((x'^_T)Fx=0) holds for all points 
-% with the estimated F (both with and without normalization)
+% Check the epipolar constraint ((x'^_T)Fx=0) holds for all points with the estimated F (both with and without normalization)
 checkEpipolarConstraint(P1_hom, P2_hom, F, threshold, title);
 
-% Visualize the stereo pairs with epipolar lines of the corresponding points 
-% (use the function visualizeEpipolarLines provided with the Lab material) 
+% Visualize the stereo pairs with epipolar lines of the corresponding points (use the function visualizeEpipolarLines provided with the Lab material) 
 visualizeEpipolarLines(img1, img2, F, P1, P2);
 
 % Have a look at the epipoles.

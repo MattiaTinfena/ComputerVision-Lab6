@@ -3,8 +3,8 @@ function checkEpipolarConstraint(P1, P2, F, threshold,label)
     residuals = zeros(size(P1, 1), 1);
 
     for i = 1:height(P1)
-        x1 = P1(i, :); % Homogeneous point in image 1
-        x2 = P2(i, :); % Homogeneous point in image 2
+        x1 = P1(i, :); 
+        x2 = P2(i, :);
         residuals(i) = abs(x2 * F * x1'); % Epipolar constraint
     end
 

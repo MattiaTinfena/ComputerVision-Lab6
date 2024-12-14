@@ -41,8 +41,8 @@ switch(sim)
         d = exp((-(d.^2))/(2*(sigma^2)));
         
     otherwise
-        display('Unrecognized similarity function');
-        display('Possible values of parameter "sim" are "corners", "NCC", "SIFT"');
+        disp('Unrecognized similarity function');
+        disp('Possible values of parameter "sim" are "corners", "NCC", "SIFT"');
     end
 
 end
